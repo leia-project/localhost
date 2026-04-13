@@ -1,7 +1,7 @@
 services:
 
    viewer:
-     image: wkosten/leia-viewer-localhost
+     image: wkosten/leia-viewer-localhost:latest
      container_name: leia-viewer
      security_opt:
        - no-new-privileges:true
@@ -19,7 +19,7 @@ services:
 
 
    config:
-     image: wkosten/leia-config-localhost
+     image: wkosten/leia-config-localhost:latest
      container_name: leia-config
      security_opt:
        - no-new-privileges:true
