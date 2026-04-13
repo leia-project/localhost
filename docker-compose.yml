@@ -1,0 +1,36 @@
+services:
+
+   viewer:
+     image: wkosten/leia-viewer-localhost
+     container_name: leia-viewer
+     security_opt:
+       - no-new-privileges:true
+     volumes:
+       - ./example.config.json:/app/build/example.config.json  
+     restart: always
+     ports:
+       - 5000:5000
+     mem_limit: 134217728
+     logging:
+       driver: "json-file"
+       options:
+         max-file: 5
+         max-size: 15m
+
+
+   config:
+     image: wkosten/leia-config-localhost
+     container_name: leia-config
+     security_opt:
+       - no-new-privileges:true
+     restart: always
+     ports:
+       - 3000:3000
+     volumes:
+       - ./data/config/:/app/public/
+     mem_limit: 134217728
+     logging:
+       driver: "json-file"
+       options:
+         max-file: 5
+         max-size: 15m
